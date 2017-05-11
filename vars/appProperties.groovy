@@ -1,18 +1,18 @@
 ﻿def call(){
 
-BUILD_TOOL="";
-BUILD_PROP="";
-BUILD_HOME="";
+buildTool="maven";
+buildProp="";
+buildHome="";
 
 def getBuildTool(){
-    return BUILD_TOOL;
+    return buildTool;
 }
 
-def getBuildProps(){
-    return BUILD_PROP;
+def getBuildProp(){
+    return buildProp;
 }
 
 def getBuildHome(){
-    return BUILD_TOOL;
+    return buildHome;
 }
 }
