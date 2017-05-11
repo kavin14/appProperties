@@ -1,4 +1,6 @@
-﻿BUILD_TOOL="";
+﻿def call(){
+
+BUILD_TOOL="";
 BUILD_PROP="";
 BUILD_HOME="";
 
@@ -12,4 +14,5 @@ def getBuildProps(){
 
 def getBuildHome(){
     return BUILD_TOOL;
+}
 }
