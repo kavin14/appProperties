@@ -1,6 +1,6 @@
 ﻿def call(){
 echo "hello world"
-buildTool="maven";
+/*buildTool="maven";
 buildProp="";
 buildHome="";
 
@@ -17,4 +17,5 @@ def getBuildHome(){
 }
 
 }
-return this;
+return this;*/
+ }
