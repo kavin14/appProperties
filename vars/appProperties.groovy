@@ -15,5 +15,6 @@ def getBuildProp(){
 def getBuildHome(){
     return buildHome;
 }
-return this;
+
 }
+return this;
