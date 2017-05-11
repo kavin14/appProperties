@@ -1,5 +1,5 @@
 ﻿def call(){
-
+echo "hello world"
 buildTool="maven";
 buildProp="";
 buildHome="";
