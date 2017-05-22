@@ -1,9 +1,9 @@
-def call() {
+def call(build_Type,current_Stage) {
  TimeZone.getTimeZone('UTC')
  Date date= new Date()
  String newdate=date.format("YYYY-MM-DD HH:mm:ss.Ms")
- def buildType = "Release";
- def currentStage = "Build";
+ def buildType = build_Type;
+ def currentStage = current_Stage;
  def deployJson = """
   {
             "scm_branch": "git",
