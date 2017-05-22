@@ -24,5 +24,4 @@ def call(build_Type,current_Stage) {
          "-H 'Content-Type:application/json'", 
          "-d ${deployJson}", 
          "http://10.20.28.90:9201/wf-build-data/jobdata/"].execute().text
-
 }
