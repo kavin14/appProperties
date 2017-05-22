@@ -14,7 +14,7 @@ def call(build_Type,current_Stage) {
             "application_name": "$env.JOB_NAME",
             "artifact": "",
             "deploy_url": "$env.BUILD_URL",
-            "result": "${currentBuild.timestamp}",
+            "result": "${currentBuild.result}",
             "@timestamp": "$newdate",
             "build_type" : "$buildType",
             "stage": "$currentStage"
