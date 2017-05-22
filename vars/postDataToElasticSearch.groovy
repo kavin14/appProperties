@@ -26,21 +26,4 @@ def call(build_Type,current_Stage) {
          "-H 'Content-Type:application/json'", 
          "-d ${deployJson}", 
          "http://10.20.28.90:9201/wf-build-data/jobdata/"].execute().text
- 
- http.request( 'http://admin:admin@10.20.28.90:8081', GET, TEXT ) { req ->
-  uri.path = '/jenkins-team-1/job/maven/21/api/json?tree=number,status,timestamp,id,result'
-  headers.'User-Agent' = "Mozilla/5.0 Firefox/3.0.4"
-  headers.Accept = 'application/json'
-
-  response.success = { resp, reader ->
-    assert resp.statusLine.statusCode == 200
-    println "Got response: ${resp.statusLine}"
-    println "Content-Type: ${resp.headers.'Content-Type'}"
-    println reader.text
-  }
-
-  response.'404' = {
-    println 'Not found'
-  }
-}
 }
