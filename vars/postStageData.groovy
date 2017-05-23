@@ -20,4 +20,4 @@ def call(){
          "-d ${buildDetails}", 
          "http://10.20.28.90:9201/wf-build-stage-data/jobdata/"].execute().text
 }
-}
+
