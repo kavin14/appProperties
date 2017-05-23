@@ -19,9 +19,6 @@ def call(build_Type,current_Stage) {
  String newdate=date.format("YYYY-MM-DD HH:mm:ss.Ms")
  def buildType = build_Type;
  def currentStage = current_Stage;
- def jsonSlurper = new JsonSlurper()
- def object = jsonSlurper.parseText(x)
- def assert object instanceof Map
  def deployJson = """
   {
             "scm_branch": "git",
