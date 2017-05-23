@@ -1,11 +1,20 @@
 #!/usr/bin/env groovy
 def call(build_Type,current_Stage) {
-
+ curlCommand = 'curl  -H "Accept: application/json" -H "Content-Type: application/json" -u admin:admin '
+ buildUrlQuery = "api/json?tree=number,duration,timestamp,id,result"
+ buildDetails = "$curlCommand$env.BUILD_URL$buildUrlQuery".execute().text
+ def jsonSlurper = new JsonSlurper()
+ def object = jsonSlurper.parseText(x)
+ assert object instanceof Map
+ 
  TimeZone.getTimeZone('UTC')
  Date date= new Date()
  String newdate=date.format("YYYY-MM-DD HH:mm:ss.Ms")
  def buildType = build_Type;
  def currentStage = current_Stage;
+ def jsonSlurper = new JsonSlurper()
+ def object = jsonSlurper.parseText(x)
+ def assert object instanceof Map
  def deployJson = """
   {
             "scm_branch": "git",
@@ -16,10 +25,11 @@ def call(build_Type,current_Stage) {
             "application_name": "$env.JOB_NAME",
             "artifact": "",
             "deploy_url": "$env.BUILD_URL",
-            "result": "${currentBuild.result}",
+            "result": "${object.result}",
             "@timestamp": "$newdate",
             "build_type" : "$buildType",
-            "stage": "$currentStage"
+            "stage": "$currentStage",
+            "duration": ${object.duration}
         }
 """
 ["curl", "-i", "-XPOST", 
