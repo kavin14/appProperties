@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+import groovy.json.JsonSlurper
 def call(build_Type,current_Stage) {
  curlCommand = 'curl  -H "Accept: application/json" -H "Content-Type: application/json" -u admin:admin '
  buildUrlQuery = "api/json?tree=number,duration,timestamp,id,result"
