@@ -13,7 +13,7 @@ def call(build_Type,current_Stage) {
  def jsonSlurper = new JsonSlurper()
  def object = jsonSlurper.parseText(buildDetails)
  assert object instanceof Map
- 
+ echo object.id
  TimeZone.getTimeZone('UTC')
  Date date= new Date()
  String newdate=date.format("YYYY-MM-DD HH:mm:ss.Ms")
