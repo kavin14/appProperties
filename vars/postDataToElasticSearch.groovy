@@ -1,11 +1,17 @@
 #!/usr/bin/env groovy
+import hudson.model.*
+import hudson.EnvVars
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+import java.net.URL
 import groovy.json.JsonSlurper
+
 def call(build_Type,current_Stage) {
  curlCommand = 'curl  -H "Accept: application/json" -H "Content-Type: application/json" -u admin:admin '
  buildUrlQuery = "api/json?tree=number,duration,timestamp,id,result"
  buildDetails = "$curlCommand$env.BUILD_URL$buildUrlQuery".execute().text
  def jsonSlurper = new JsonSlurper()
- def object = jsonSlurper.parseText(x)
+ def object = jsonSlurper.parseText(buildDetails)
  assert object instanceof Map
  
  TimeZone.getTimeZone('UTC')
