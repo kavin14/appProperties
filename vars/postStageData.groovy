@@ -6,13 +6,14 @@ import groovy.json.JsonOutput
 import java.net.URL
 import groovy.json.JsonSlurper
 
-def call(){
+def call(build_Type){
      curlCommand = 'curl  -H "Accept: application/json" -H "Content-Type: application/json" -u admin:admin '
      buildUrlQuery = "wfapi/"
      buildDetails = "$curlCommand$env.BUILD_URL$buildUrlQuery".execute().text
      def jsonSlurper = new JsonSlurper()
      def object = jsonSlurper.parseText(buildDetails)
      assert object instanceof Map
+     object << [buildType: build_Type]
      buildDetails = object
 
 ["curl", "-i", "-XPOST", 
