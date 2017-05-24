@@ -14,7 +14,7 @@ def call(build_Type){
      def object = jsonSlurper.parseText(buildDetails)
      assert object instanceof Map
      object << [buildType: build_Type]
-     buildDetails = object
+     buildDetails = JsonOutput.toJson(object)
 
 ["curl", "-i", "-XPOST", 
          "-H 'Content-Type:application/json'", 
