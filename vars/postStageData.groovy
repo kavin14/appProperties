@@ -19,9 +19,9 @@ def call(build_Type){
      //object << [masterName: x[3].replace('-','')]
      object << [masterName: x[3]]
      object << [JobName: x[5]]
-     object << [timestamp: jobendtime]
+     object << ['@timestamp': jobendtime]
       if(currentBuild.result != "FAILIURE" || currentBuild.result != "ABORTED") {
-         currentbuild.result = "SUCCESS"
+         currentBuild.result = "SUCCESS"
      }
      object << [buildStatus: currentbuild.result]
      buildDetails = JsonOutput.toJson(object)
