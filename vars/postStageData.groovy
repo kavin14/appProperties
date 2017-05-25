@@ -18,7 +18,7 @@ def call(build_Type){
      object << [masterName: x[3]]
      object << [JobName: x[5]]
      String newdate=date.format("YYYY-MM-DD HH:mm:ss.Ms")
-     object << [@timestamp : newdate]
+     object << [timestamp : newdate]
      buildDetails = JsonOutput.toJson(object)
 
 ["curl", "-i", "-XPOST", 
