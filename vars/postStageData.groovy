@@ -22,6 +22,6 @@ def call(build_Type){
 ["curl", "-i", "-XPOST", 
          "-H 'Content-Type:application/json'", 
          "-d ${buildDetails}", 
-         "http://10.20.28.90:9201/wf-build-stage-data/jobdata/"].execute().text
+         "http://10.20.28.90:9201/wf-build-data-test/jobdata/"].execute().text
 }
 
