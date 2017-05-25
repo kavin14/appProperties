@@ -23,7 +23,7 @@ def call(build_Type){
       if(currentBuild.result != "FAILIURE" || currentBuild.result != "ABORTED") {
          currentBuild.result = "SUCCESS"
      }
-     object << [buildStatus: currentbuild.result]
+     object << [buildStatus: currentBuild.result]
      buildDetails = JsonOutput.toJson(object)
     
 ["curl", "-i", "-XPOST", 
