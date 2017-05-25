@@ -15,7 +15,7 @@ def call(build_Type){
      def object = jsonSlurper.parseText(buildDetails)
      assert object instanceof Map
      object << [buildType: build_Type]
-     object << [masterName: x[3]]
+     object << [masterName: x[3].replace('-','')]
      object << [JobName: x[5]]
      buildDetails = JsonOutput.toJson(object)
 
